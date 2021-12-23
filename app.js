@@ -11,7 +11,7 @@ const _ = require("lodash");
 main().catch(err => console.log(err));
  
 async function main() {
-  await mongoose.connect('mongodb://localhost:27017/todolistDB');
+  await mongoose.connect('mongodb+srv://ali1397hasnain:(Mongo1397DB)@cluster0.aregx.mongodb.net/todolistDB?retryWrites=true&w=majority');
   };
 
   const itemsSchema = new mongoose.Schema ({
@@ -129,6 +129,6 @@ app.post("/", function(req, res){
     res.render("about");
   });
   
-  app.listen(3000, function() {
+  app.listen(process.env.PORT || 3000, function() {
     console.log("Server started on port 3000");
   });
